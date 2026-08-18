@@ -1,16 +1,18 @@
 # Plan — Day by Day
 
 Picking up from the current state: Malek's `ai_brain.py`/`tools.py` are code-complete
-(Grok, via the OpenAI-compatible API), pending a valid API key. Amine's `main.py`/`keys.py`
-are still empty stubs.
+(Groq, via the OpenAI-compatible API). Amine's `main.py`/`keys.py` are still empty stubs.
 
-## Day 1 — Unblock & validate Malek's side
+## Day 1 — Unblock & validate Malek's side ✅ DONE
 
-- [ ] Get the real `xai-...` key from console.x.ai, drop it into `.env`
-- [ ] Run `python test_ai.py`, confirm all 5 sample questions return sane answers
+- [x] Get a working API key and drop it into `.env`. (Originally planned for xAI/Grok;
+      switched to **Groq** — a different, hosted, free-tier provider — since xAI's API
+      requires paid credits. Same OpenAI-compatible code either way.)
+- [x] Run `python test_ai.py`, confirm all 5 sample questions return sane answers
       (tool calls firing correctly for both `search_products` and `get_order_status`)
-- [ ] Sanity-check: ask something with no match (e.g. "do you have hats?") and confirm
-      it says "no match" instead of guessing
+- [x] Sanity-check: asked for a nonexistent product ("hats") and a nonexistent order
+      (#999) — both correctly said "not found" and offered human handoff, instead of
+      guessing
 
 ## Day 2 — Prompt hardening (Malek) + server skeleton (Amine)
 
@@ -42,7 +44,7 @@ are still empty stubs.
 
 ## Day 4 — Hardening + external test
 
-- [ ] Wrap the `ai_brain()` call in `main.py` in try/except so a Grok error/timeout
+- [ ] Wrap the `ai_brain()` call in `main.py` in try/except so a Groq error/timeout
       returns a clean error response, not a 500 stack trace to the customer
 - [ ] Test "from another site": a separate script or simple HTML page hitting the
       deployed/local `/chat` with an API key
