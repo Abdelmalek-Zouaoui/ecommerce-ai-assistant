@@ -1,0 +1,42 @@
+[
+  {
+    "id": "p1",
+    "name": "Red Shirt",
+    "description": "A comfortable cotton t-shirt in bright red",
+    "price": 20.00,
+    "stock": 5,
+    "category": "shirts"
+  },
+  {
+    "id": "p2",
+    "name": "Blue Jeans",
+    "description": "Classic slim-fit blue denim jeans",
+    "price": 45.00,
+    "stock": 12,
+    "category": "pants"
+  },
+  {
+    "id": "p3",
+    "name": "Black Sneakers",
+    "description": "Lightweight black running sneakers",
+    "price": 60.00,
+    "stock": 0,
+    "category": "shoes"
+  },
+  {
+    "id": "p4",
+    "name": "Green Hoodie",
+    "description": "Warm fleece hoodie in forest green",
+    "price": 35.00,
+    "stock": 8,
+    "category": "hoodies"
+  },
+  {
+    "id": "p5",
+    "name": "White Polo",
+    "description": "Elegant white polo shirt for casual or semi-formal wear",
+    "price": 25.00,
+    "stock": 3,
+    "category": "shirts"
+  }
+]

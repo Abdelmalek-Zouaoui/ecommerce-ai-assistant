@@ -1,4 +1,4 @@
-# E-commerce AI Assistant (AI part only)
+/# E-commerce AI Assistant (AI part only)
 
 We are building **only the AI brain**: a server that answers shopping questions for
 online stores. Any store can connect to it by calling our API with their own key.

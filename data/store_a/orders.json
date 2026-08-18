@@ -1,0 +1,34 @@
+[
+  {
+    "id": "101",
+    "customer_name": "Alice Johnson",
+    "status": "shipped",
+    "items": ["Red Shirt", "Blue Jeans"],
+    "total": 65.00,
+    "tracking_number": "TRK-998877"
+  },
+  {
+    "id": "102",
+    "customer_name": "Bob Smith",
+    "status": "processing",
+    "items": ["Green Hoodie"],
+    "total": 35.00,
+    "tracking_number": null
+  },
+  {
+    "id": "103",
+    "customer_name": "Carol Davis",
+    "status": "delivered",
+    "items": ["Black Sneakers", "White Polo"],
+    "total": 85.00,
+    "tracking_number": "TRK-112233"
+  },
+  {
+    "id": "104",
+    "customer_name": "Dave Wilson",
+    "status": "cancelled",
+    "items": ["Red Shirt"],
+    "total": 20.00,
+    "tracking_number": null
+  }
+]
