@@ -16,11 +16,12 @@ Picking up from the current state: Malek's `ai_brain.py`/`tools.py` are code-com
 
 ## Day 2 — Prompt hardening (Malek) + server skeleton (Amine)
 
-**Malek (M4):**
-- [ ] Test ~10 more questions (ambiguous ones, multiple products matching, cancelled/
-      delivered orders, nonexistent order id)
-- [ ] Tighten `SYSTEM_PROMPT` based on what goes wrong (tone, refusing to invent data,
-      handoff wording)
+**Malek (M4): ✅ DONE — see [issue #2](https://github.com/Abdelmalek-Zouaoui/ecommerce-ai-assistant/issues/2) for the full writeup**
+- [x] Tested far more than 10 edge-case questions: ambiguous/multi-match search,
+      hallucination attempts, direct + indirect prompt injection, off-topic abuse,
+      sensitive data, malformed store data, multi-language (incl. Arabic)
+- [x] Tightened `SYSTEM_PROMPT` repeatedly based on real failures found, and made
+      `tools.py` reject malformed store data instead of crashing
 
 **Amine (A1–A2):**
 - [ ] `main.py`: FastAPI app, `/chat` endpoint accepting `{question, api_key}`,

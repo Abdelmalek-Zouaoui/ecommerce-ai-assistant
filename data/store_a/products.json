@@ -4,6 +4,7 @@
     "name": "Red Shirt",
     "description": "A comfortable cotton t-shirt in bright red",
     "price": 20.00,
+    "currency": "USD",
     "stock": 5,
     "category": "shirts"
   },
@@ -12,6 +13,7 @@
     "name": "Blue Jeans",
     "description": "Classic slim-fit blue denim jeans",
     "price": 45.00,
+    "currency": "USD",
     "stock": 12,
     "category": "pants"
   },
@@ -20,6 +22,7 @@
     "name": "Black Sneakers",
     "description": "Lightweight black running sneakers",
     "price": 60.00,
+    "currency": "USD",
     "stock": 0,
     "category": "shoes"
   },
@@ -28,6 +31,7 @@
     "name": "Green Hoodie",
     "description": "Warm fleece hoodie in forest green",
     "price": 35.00,
+    "currency": "USD",
     "stock": 8,
     "category": "hoodies"
   },
@@ -36,6 +40,7 @@
     "name": "White Polo",
     "description": "Elegant white polo shirt for casual or semi-formal wear",
     "price": 25.00,
+    "currency": "USD",
     "stock": 3,
     "category": "shirts"
   }
