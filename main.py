@@ -46,5 +46,3 @@ def chat(request: dict = Body()):
     answer = ai_brain(question, store_id)
 
     return {"answer": answer}
-
-    
