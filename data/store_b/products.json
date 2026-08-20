@@ -1,0 +1,34 @@
+[
+  {
+    "id": "p1",
+    "name": "Wireless Mouse",
+    "description": "Ergonomic wireless mouse with adjustable DPI",
+    "price": 15.00,
+    "stock": 20,
+    "category": "accessories"
+  },
+  {
+    "id": "p2",
+    "name": "USB-C Hub",
+    "description": "7-port USB-C hub with HDMI and SD card reader",
+    "price": 30.00,
+    "stock": 10,
+    "category": "accessories"
+  },
+  {
+    "id": "p3",
+    "name": "Laptop Stand",
+    "description": "Adjustable aluminum laptop stand for better posture",
+    "price": 40.00,
+    "stock": 0,
+    "category": "stands"
+  },
+  {
+    "id": "p4",
+    "name": "Mechanical Keyboard",
+    "description": "RGB mechanical keyboard with blue switches",
+    "price": 55.00,
+    "stock": 7,
+    "category": "keyboards"
+  }
+]
