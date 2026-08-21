@@ -23,25 +23,30 @@ Picking up from the current state: Malek's `ai_brain.py`/`tools.py` are code-com
 - [x] Tightened `SYSTEM_PROMPT` repeatedly based on real failures found, and made
       `tools.py` reject malformed store data instead of crashing
 
-**Amine (A1–A2):**
-- [ ] `main.py`: FastAPI app, `/chat` endpoint accepting `{question, api_key}`,
+**Amine (A1–A2): ✅ DONE**
+- [x] `main.py`: FastAPI app, `/chat` endpoint accepting `{question, api_key}`,
       returning `{answer}`
-- [ ] Wire it to the real `ai_brain()` directly (no need for a fake stub since it
+- [x] Wire it to the real `ai_brain()` directly (no need for a fake stub since it
       already works) — run with `uvicorn main:app --reload`, check `/docs`
 
-## Day 3 — Auth + join (Amine, Malek reviews)
+(Merged from Amine's `amine/server-and-keys` branch, then swapped his fake
+`ai_brain()` stub for the real import per the plan above.)
+
+## Day 3 — Auth + join (Amine, Malek reviews) ✅ DONE
 
 **Amine (A3–A4):**
-- [ ] `keys.py`: dict of `api_key → store_id`, reject unknown keys with a clear
+- [x] `keys.py`: dict of `api_key → store_id`, reject unknown keys with a clear
       401/403
-- [ ] Confirm `data.py` (already implemented) matches expectations — flag if it
-      needs changes
-- [ ] Add a second store (`data/store_b/...`) to prove multi-tenant isolation
+- [x] Confirm `data.py` (already implemented) matches expectations — flag if it
+      needs changes (no changes needed)
+- [x] Add a second store (`data/store_b/...`) to prove multi-tenant isolation
       actually works, not just single-store
 
 **Together:**
-- [ ] End-to-end test: call `/chat` with `sk_store_a` and `sk_store_b`, confirm each
-      only ever sees its own products/orders
+- [x] End-to-end test: call `/chat` with `sk_store_a` and `sk_store_b`, confirm each
+      only ever sees its own products/orders — see `test_multi_tenant.py`
+      (11/11 checks passed, including the same order id "101" existing in both
+      stores with different data)
 
 ## Day 4 — Hardening + external test
 

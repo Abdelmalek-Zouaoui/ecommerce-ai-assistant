@@ -1,0 +1,20 @@
+[
+  {
+    "id": "101",
+    "customer_name": "Elena Rossi",
+    "status": "processing",
+    "items": ["Leather Wallet"],
+    "total": 30.00,
+    "currency": "EUR",
+    "tracking_number": null
+  },
+  {
+    "id": "201",
+    "customer_name": "Marco Bianchi",
+    "status": "shipped",
+    "items": ["Canvas Backpack"],
+    "total": 55.00,
+    "currency": "EUR",
+    "tracking_number": "TRK-556677"
+  }
+]

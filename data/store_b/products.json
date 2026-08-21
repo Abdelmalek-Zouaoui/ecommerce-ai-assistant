@@ -1,0 +1,29 @@
+[
+  {
+    "id": "p1",
+    "name": "Leather Wallet",
+    "description": "Handmade brown leather bifold wallet",
+    "price": 30.00,
+    "currency": "EUR",
+    "stock": 10,
+    "category": "accessories"
+  },
+  {
+    "id": "p2",
+    "name": "Wool Scarf",
+    "description": "Soft grey wool scarf for winter",
+    "price": 22.00,
+    "currency": "EUR",
+    "stock": 0,
+    "category": "accessories"
+  },
+  {
+    "id": "p3",
+    "name": "Canvas Backpack",
+    "description": "Durable canvas backpack with laptop sleeve",
+    "price": 55.00,
+    "currency": "EUR",
+    "stock": 6,
+    "category": "bags"
+  }
+]
