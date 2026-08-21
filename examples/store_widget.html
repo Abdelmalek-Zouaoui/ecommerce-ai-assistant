@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example store widget — calls our /chat API</title>
+</head>
+<body>
+  <h1>Acme Store — Ask us anything</h1>
+  <p>This page simulates a completely separate store website embedding our chat widget.
+     It calls our API over plain HTTP, exactly like a real store integration would.</p>
+
+  <input id="question" type="text" size="50" value="Do you have red shirts?">
+  <button id="ask">Ask</button>
+  <pre id="answer"></pre>
+
+  <script>
+    const API_URL = "http://127.0.0.1:8000/chat";
+    const API_KEY = "sk_store_a"; // the key WE gave this store
+
+    document.getElementById("ask").addEventListener("click", async () => {
+      const question = document.getElementById("question").value;
+      const answerEl = document.getElementById("answer");
+      answerEl.textContent = "Asking...";
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question, api_key: API_KEY }),
+        });
+        const data = await response.json();
+        answerEl.textContent = response.ok ? data.answer : `Error ${response.status}: ${data.detail}`;
+      } catch (err) {
+        answerEl.textContent = `Request failed: ${err}`;
+      }
+    });
+  </script>
+</body>
+</html>

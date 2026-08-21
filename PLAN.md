@@ -48,13 +48,22 @@ Picking up from the current state: Malek's `ai_brain.py`/`tools.py` are code-com
       (11/11 checks passed, including the same order id "101" existing in both
       stores with different data)
 
-## Day 4 — Hardening + external test
+## Day 4 — Hardening + external test ✅ DONE
 
-- [ ] Wrap the `ai_brain()` call in `main.py` in try/except so a Groq error/timeout
+- [x] Wrap the `ai_brain()` call in `main.py` in try/except so a Groq error/timeout
       returns a clean error response, not a 500 stack trace to the customer
-- [ ] Test "from another site": a separate script or simple HTML page hitting the
-      deployed/local `/chat` with an API key
-- [ ] Edge cases: missing `api_key`, malformed JSON, empty question string
+      (returns 503 + logs the real exception server-side via `logger.exception`)
+- [x] Test "from another site": a separate script or simple HTML page hitting the
+      deployed/local `/chat` with an API key — see `examples/store_widget.html`,
+      verified in a real browser. This surfaced a real bug: no CORS config meant
+      every browser-based store integration would be silently blocked by the
+      preflight check. Fixed with `CORSMiddleware(allow_origins=["*"])` — the
+      `api_key` check is what actually gates data access, not the origin.
+- [x] Edge cases: missing `api_key` (400), empty question string (400, `""` is
+      falsy), malformed JSON / empty body (422, FastAPI's built-in validation —
+      clean JSON, no stack trace). Left as FastAPI's default shape rather than
+      normalizing to match our own `{"detail": "..."}` errors — noted as a minor,
+      non-blocking inconsistency for a future pass.
 
 ## Day 5 (optional — only if Days 1–4 go smoothly) — Deploy
 
