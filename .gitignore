@@ -8,6 +8,10 @@ __pycache__/
 .vscode/
 .idea/
 
+# Internal docs (not for public repo)
+PLAN.md
+PROJECT.md
+
 # OS
 .DS_Store
 Thumbs.db
