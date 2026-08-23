@@ -9,13 +9,20 @@ RESPONSE:                { "answer": "..." }
 """
 
 from fastapi import FastAPI, Body, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from keys import get_store_id
+from ai_brain import ai_brain
 
 app = FastAPI()
 
-# --- A2: Fake AI brain (Malek's real version replaces this on join day) ---
-def ai_brain(question, store_id):
-    return f"[FAKE] You asked: {question} for store {store_id}"
+# Allow requests from the static ui.html (file://) and any localhost origin
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.post("/chat")
 def chat(request: dict = Body()):
