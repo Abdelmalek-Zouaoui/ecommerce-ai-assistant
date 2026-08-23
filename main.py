@@ -8,8 +8,11 @@ REQUEST:  POST /chat  { "question": "...", "api_key": "sk_store_a" }
 RESPONSE:                { "answer": "..." }
 """
 
+from pathlib import Path
+
 from fastapi import FastAPI, Body, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 from keys import get_store_id
 from ai_brain import ai_brain
 
@@ -22,6 +25,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/", response_class=HTMLResponse)
+def serve_ui():
+    """Serve the chat UI at the root URL."""
+    html_path = Path(__file__).parent / "ui.html"
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))
 
 
 @app.post("/chat")

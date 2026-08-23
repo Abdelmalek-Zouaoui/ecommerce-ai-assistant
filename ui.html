@@ -45,13 +45,13 @@
     /* ═══ Main container ═══ */
     .chat-container {
       width: 100%;
-      max-width: 780px;
+      max-width: 600px;
       background: var(--surface);
       border-radius: 20px;
       box-shadow: var(--shadow-lg);
       display: flex;
       flex-direction: column;
-      height: 680px;
+      height: 520px;
       overflow: hidden;
       position: relative;
     }
@@ -497,7 +497,7 @@
       </h3>
       <label>
         Server URL
-        <input id="server-url" type="text" value="http://127.0.0.1:8000" placeholder="http://127.0.0.1:8000" />
+        <input id="server-url" type="text" value="" placeholder="Auto-detected or enter manually" />
       </label>
       <label>
         API Key (Store)
@@ -556,7 +556,11 @@
     const messagesEl  = document.getElementById('messages');
     const inputEl     = document.getElementById('msg-input');
     const sendBtn     = document.getElementById('send-btn');
-    const serverUrl   = document.getElementById('server-url');
+    const serverUrlEl = document.getElementById('server-url');
+
+    // Auto-detect: if served from a real server, use same origin; if opened as file://, fall back to localhost
+    const autoUrl = (window.location.protocol === 'file:') ? 'http://127.0.0.1:8000' : window.location.origin;
+    serverUrlEl.value = autoUrl;
     const apiKeyEl    = document.getElementById('api-key');
 
     const settingsBtn     = document.getElementById('settings-btn');
@@ -673,7 +677,7 @@
       const typing = addTyping();
 
       try {
-        const res = await fetch(`${serverUrl.value.replace(/\/$/, '')}/chat`, {
+        const res = await fetch(`${serverUrlEl.value.replace(/\/$/, '')}/chat`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ question, api_key: apiKeyEl.value }),
